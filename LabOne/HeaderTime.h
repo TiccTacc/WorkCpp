@@ -7,6 +7,7 @@ class Time
 private:
 	int hours, minutes, seconds;
 	bool AMPM, pm;
+	//void CheckingThePeriod(int H, int m, int s);
 public:
 	
 	Time();
@@ -21,9 +22,6 @@ public:
 	bool operator>(Time& timeLess);
 	bool operator==(Time& timeComp); // comparison
 	bool operator!=(Time& timeIneq); // inequality
-
-
-
 
 	friend ostream& operator<<(ostream& stringOut, const Time& timeOut);
 	friend istream& operator>>(istream& stream, Time& timeIn);
@@ -41,7 +39,7 @@ Time::Time()
 }
 Time::Time(int H, int m, int s, bool pAMPM, bool p_pm)
 {
-	CheckingThePeriod(H, m, s);
+	//CheckingThePeriod(H, m, s);
 
 	hours = H;
 	minutes = m;
@@ -57,8 +55,10 @@ Time::Time(int H, int m, int s, bool pAMPM, bool p_pm)
 Time Time::operator+(Time& timeAdd) {
 	
 	Time Result = *new Time();
-	bool oneAMPM, twoAMPM = false;
-	int optMinutes, optHours = 0;
+	bool oneAMPM = false, 
+		twoAMPM = false;
+	int optMinutes = 0,
+		optHours = 0;
 
 	if (AMPM) {
 		convertateToStandatformat();
@@ -260,8 +260,10 @@ bool Time::operator!=(Time& timeIneq) {
 /* Функции присваивания */
 Time Time::operator+=(Time& timeAdd) {
 
-	bool oneAMPM, twoAMPM = false;
-	int optMinutes, optHours = 0;
+	bool oneAMPM = false, 
+		twoAMPM = false;
+	int optMinutes = 0, 
+		optHours = 0;
 
 	if (AMPM) {
 		convertateToStandatformat();
@@ -296,6 +298,8 @@ Time Time::operator+=(Time& timeAdd) {
 
 	if (oneAMPM)
 		convertateToAMPMformat();
+
+	return timeAdd;
 
 }
 Time Time::operator-=(Time& timeSub) {
@@ -332,6 +336,8 @@ Time Time::operator-=(Time& timeSub) {
 	if (subAMPM)
 		timeSub.convertateToAMPMformat();
 
+	return timeSub;
+
 }
 
 /* Функции ввода и вывода*/
@@ -355,6 +361,8 @@ ostream& operator<<(std::ostream& stream, const Time& timeOut) {
 		}
 	}
 	stream << stringOut << endl;
+
+	return stream;
 }
 istream& operator>>(std::istream& stream, Time& timeIn)
 {

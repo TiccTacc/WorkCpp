@@ -49,4 +49,5 @@ int fTime() {
     cout << "The first date is equal to the second: " << (test_time_one == test_time_two) << endl;
     cout << "The first date is not equal to the second: " << (test_time_one != test_time_two) << endl;
 
+    return 0;
 }

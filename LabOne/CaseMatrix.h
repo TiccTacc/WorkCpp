@@ -139,6 +139,7 @@ ostream& operator<<(ostream& stringOut, const Matrix& arrayM) {
 		stringOut << endl;
 	}
 	stringOut << "Size in: string - "<< arrayM.m_rows<< "; column - "<< arrayM.m_cols << endl;
+	return stringOut;
 }
 istream& operator>>(istream& stringIn, Matrix& arrayM) {
 
