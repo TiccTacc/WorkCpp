@@ -7,6 +7,7 @@
 #include <vector>
 #include <tuple>
 #include <cmath>
+#include <time.h>
 
 using std::vector;
 using std::tuple;
